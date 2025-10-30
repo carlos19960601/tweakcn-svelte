@@ -1,0 +1,103 @@
+<script lang="ts">
+	import github from '$lib/assets/github.svg';
+	import logo from '$lib/assets/logo.svg';
+	import { Button } from '$lib/components/ui/button';
+	import { ChevronRightIcon } from '@lucide/svelte';
+	import { onMount } from 'svelte';
+	import { fly, scale } from 'svelte/transition';
+	import ThemeToggle from '../theme-toggle.svelte';
+
+	let { isScrolled, mobileMenuOpen = $bindable() } = $props();
+	let mounted = $state(false);
+
+	const navbarItems = [
+		{
+			label: 'Examples',
+			href: '#examples'
+		},
+		{
+			label: 'Features',
+			href: '#features'
+		},
+		{
+			label: 'Pricing',
+			href: '/pricing'
+		},
+		{
+			label: 'Roadmap',
+			href: '#roadmap'
+		},
+		{
+			label: 'FAQ',
+			href: '#faq'
+		}
+	];
+
+	onMount(() => {
+		mounted = true;
+	});
+</script>
+
+<header>
+	<div class="h-16 flex justify-between items-center px-4">
+		<a href="/">
+			<div class="flex items-center gap-2 font-bold">
+				<img src={logo} class="size-6" alt="Logo" />
+				<span class="hidden lg:block">tweakcn</span>
+			</div>
+		</a>
+		<nav class="flex items-center gap-4 lg:gap-8">
+			{#each navbarItems as item, i (item.label)}
+				{#if mounted}
+					<a
+						transition:fly={{ duration: 300, opacity: 0, y: -10, delay: 100 + i * 50 }}
+						href={item.href}
+						class="group relative"
+						>{item.label}
+						<span
+							class="bg-primary absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300"
+						></span>
+					</a>
+				{/if}
+
+				<!-- <Motion
+					let:motion
+					initial={{ opacity: 0, y: -10 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.3, delay: 0.1 + i * 0.05 }}
+				>
+					<a use:motion href={item.href} class="group"
+						>{item.label}
+						<span class="absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full"></span>
+					</a>
+				</Motion> -->
+			{/each}
+		</nav>
+		<div class="hidden md:flex gap-4 items-center">
+			{#if mounted}
+				<div transition:scale={{ start: 0.9, opacity: 0, duration: 300, delay: 450 }}>
+					<Button variant="ghost">
+						<img src={github} class="size-5" alt="Github" />
+					</Button>
+				</div>
+
+				<div transition:scale={{ opacity: 0, start: 0.9, duration: 300, delay: 400 }}>
+					<ThemeToggle
+						variant="secondary"
+						class="rounded-full transition-transform hover:scale-105"
+					/>
+				</div>
+
+				<div transition:scale={{ opacity: 0, start: 0.9, duration: 300, delay: 500 }}>
+					<a href="/editor/theme">
+						<Button
+							class="cursor-pointer rounded-full font-medium hover:scale-105 transition-transform"
+						>
+							Try It Now <ChevronRightIcon class="ml-1 size-4" />
+						</Button>
+					</a>
+				</div>
+			{/if}
+		</div>
+	</div>
+</header>
