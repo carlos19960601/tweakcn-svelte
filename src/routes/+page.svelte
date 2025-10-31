@@ -1,14 +1,16 @@
 <script>
 	import Header from '$lib/components/home/header.svelte';
 	import Hero from '@/components/home/hero.svelte';
+	import ThemePresetSelector from '@/components/home/theme-preset-selector.svelte';
 
 	let isScrolled = $state(false);
 	let mobileMenuOpen = $state(false);
 </script>
 
-<div class="flex flex-col min-h-dvh">
+<div class="bg-background text-foreground flex flex-col justify-items-center">
 	<Header {isScrolled} {mobileMenuOpen} />
 	<main>
 		<Hero />
+		<ThemePresetSelector />
 	</main>
 </div>

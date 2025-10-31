@@ -1,7 +1,10 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
+	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
 	import { ModeWatcher } from 'mode-watcher';
 	import '../app.css';
+
+	const queryClient = new QueryClient();
 
 	const { children } = $props();
 </script>
@@ -20,4 +23,7 @@
 </svelte:head>
 
 <ModeWatcher />
-{@render children?.()}
+
+<QueryClientProvider client={queryClient}>
+	{@render children?.()}
+</QueryClientProvider>
