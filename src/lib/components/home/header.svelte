@@ -66,18 +66,6 @@
 						></span>
 					</a>
 				{/if}
-
-				<!-- <Motion
-					let:motion
-					initial={{ opacity: 0, y: -10 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.3, delay: 0.1 + i * 0.05 }}
-				>
-					<a use:motion href={item.href} class="group"
-						>{item.label}
-						<span class="absolute -bottom-1 left-0 w-0 h-0.5 group-hover:w-full"></span>
-					</a>
-				</Motion> -->
 			{/each}
 		</nav>
 		<div class="hidden md:flex gap-4 items-center">
@@ -85,9 +73,6 @@
 				<div transition:scale={{ start: 0.9, opacity: 0, duration: 300, delay: 450 }}>
 					<Button variant="ghost" class="cursor-pointer">
 						<img src={github} class="size-5" alt="Github" />
-						<!-- {#if githubStars.data?.stargazers_count && githubStars.data.stargazers_count > 0}
-							{formatCompactNumber(githubStars?.data.stargazers_count)}
-						{/if} -->
 						{#if githubStars.data?.stargazers_count && githubStars.data.stargazers_count > 0}
 							{formatCompactNumber(githubStars.data.stargazers_count)}
 						{/if}
