@@ -1,29 +1,15 @@
 <script lang="ts">
 	import Button from '@/components/ui/button/button.svelte';
 	import { cn } from '@/utils';
-	import { elasticOut } from 'svelte/easing';
-	import { Tween } from 'svelte/motion';
 	import ColorBox from './color-box.svelte';
 
 	let { preset } = $props();
-
-	const scale = new Tween(100, { duration: 200, easing: elasticOut });
-	const y = new Tween(0, { duration: 200, easing: elasticOut });
 </script>
 
 <div
 	role="button"
 	tabindex="0"
-	class="min-w-40 translate-y-1"
-	style="scale: {scale.current}%; transform: translateY({y.current}px)"
-	onmouseenter={() => {
-		scale.target = 102;
-		y.target = -3;
-	}}
-	onmouseleave={() => {
-		scale.target = 100;
-		y.target = 0;
-	}}
+	class="min-w-40 hover:scale-[102%] hover:-translate-y-[3px] duration-200 ease-out"
 >
 	<Button
 		variant="ghost"
