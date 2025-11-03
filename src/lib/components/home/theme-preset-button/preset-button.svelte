@@ -16,7 +16,10 @@
 		class={cn(
 			'flex w-full h-full items-center justify-center px-4 py-3 scroll-py-3.5 hover:shadow-lg'
 		)}
-		style="background-color: {preset.bgColor}; color: {preset.themeStyle.foreground}"
+		style="background-color: {preset.bgColor
+			.replace('hsl', 'hsla')
+			.replace(/\s+/g, ', ')
+			.replace(')', ', 0.10)')}; color: {preset.themeStyle.foreground}"
 	>
 		<div class="flex items-center gap-2.5">
 			<div class="flex gap-1">

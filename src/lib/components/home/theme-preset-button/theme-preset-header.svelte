@@ -5,11 +5,6 @@
 
 	// 使用 Intersection Observer，阈值 0.2 表示 20% 可见时触发
 	const observer = useIntersectionObserver({ threshold: 0.2 });
-
-	// 添加调试
-	$effect(() => {
-		console.log(`ThemePresetHeader (${observer.id}) hasIntersected:`, observer.hasIntersected);
-	});
 </script>
 
 <!-- transition:fly={{ y: 20, duration: 500, easing: cubicOut }} -->

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import DemoMail from '$lib/components/examples/mail.svelte';
 	import { defaultPresets } from '$lib/constants/theme-presets';
 	import ThemePresetButtons from './theme-preset-button/theme-preset-buttons.svelte';
 	import ThemePresetHeader from './theme-preset-button/theme-preset-header.svelte';
@@ -12,5 +13,7 @@
 		<ThemePresetHeader />
 
 		<ThemePresetButtons {presetNames} {mode} />
+
+		<DemoMail />
 	</div>
 </section>
