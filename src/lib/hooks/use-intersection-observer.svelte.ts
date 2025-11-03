@@ -12,7 +12,6 @@ export function useIntersectionObserver(options: IntersectionObserverInit) {
 			if (entry.isIntersecting) {
 				hasIntersected = true;
 			}
-
 		}, options);
 
 		observer.observe(element);
@@ -30,5 +29,5 @@ export function useIntersectionObserver(options: IntersectionObserverInit) {
 		ref: (node: Element) => {
 			element = node;
 		}
-	}
+	};
 }
