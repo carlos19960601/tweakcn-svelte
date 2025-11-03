@@ -1,7 +1,7 @@
 <script lang="ts">
 	import TooltipWrapper from '$lib/components/tooltip-wrapper.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
-	import { cn } from '@/utils';
+	import { cn } from '$lib/utils';
 	import { MoonIcon, SunIcon } from '@lucide/svelte';
 	import { mode, toggleMode } from 'mode-watcher';
 	import type { ComponentProps } from 'svelte';

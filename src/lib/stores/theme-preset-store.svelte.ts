@@ -1,5 +1,5 @@
-import { defaultPresets } from "@/constants/theme-presets";
-import type { ThemePreset } from "@/types/theme";
+import { defaultPresets } from "$lib/constants/theme-presets";
+import type { ThemePreset } from "$lib/types/theme";
 import { writable } from "svelte/store";
 
 interface ThemePresetStore {

@@ -1,4 +1,4 @@
-import type { ThemePreset } from '@/types/theme';
+import type { ThemePreset } from '$lib/types/theme';
 
 export const defaultPresets: Record<string, ThemePreset> = {
 	'modern-minimal': {

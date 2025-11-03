@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Badge from '@/components/ui/badge/badge.svelte';
-	import { useIntersectionObserver } from '@/hooks/use-intersection-observer.svelte';
-	import { cn } from '@/utils';
+	import Badge from '$lib/components/ui/badge/badge.svelte';
+	import { useIntersectionObserver } from '$lib/hooks/use-intersection-observer.svelte';
+	import { cn } from '$lib/utils';
 
 	// 使用 Intersection Observer，阈值 0.2 表示 20% 可见时触发
 	const observer = useIntersectionObserver({ threshold: 0.2 });

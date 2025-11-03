@@ -1,6 +1,6 @@
-import { defaultThemeState } from "@/config/theme";
-import { themePresetStore } from "@/stores/theme-preset-store.svelte";
-import type { ThemeStyles } from "@/types/theme";
+import { defaultThemeState } from "$lib/config/theme";
+import { themePresetStore } from "$lib/stores/theme-preset-store.svelte";
+import type { ThemeStyles } from "$lib/types/theme";
 import { get } from "svelte/store";
 
 export function getPresetThemeStyle(name: string): ThemeStyles {

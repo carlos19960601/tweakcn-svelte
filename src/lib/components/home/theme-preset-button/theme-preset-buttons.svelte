@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { useIntersectionObserver } from '@/hooks/use-intersection-observer.svelte';
-	import { cn, colorFormatter } from '@/utils';
-	import { getPresetThemeStyle } from '@/utils/theme-preset.svelte';
+	import { useIntersectionObserver } from '$lib/hooks/use-intersection-observer.svelte';
+	import { cn, colorFormatter } from '$lib/utils';
+	import { getPresetThemeStyle } from '$lib/utils/theme-preset.svelte';
+	import AnimatedRow from './animated-row.svelte';
 	import PresetButton from './preset-button.svelte';
 
 	let { presetNames, mode }: { presetNames: string[]; mode: 'light' | 'dark' } = $props();
@@ -74,11 +75,13 @@
 	)}
 	style="gap: {rowGapPx}px;"
 >
-	{#each rowsData as rowData}
-		<div class="flex" style="gap: {gapPx}px;">
-			{#each rowData!.presets as preset, index}
-				<PresetButton {preset} />
-			{/each}
-		</div>
+	{#each rowsData as rowData (rowData?.key)}
+		<AnimatedRow>
+			<div class="flex" style="gap: {gapPx}px;">
+				{#each rowData!.presets as preset, index}
+					<PresetButton {preset} />
+				{/each}
+			</div>
+		</AnimatedRow>
 	{/each}
 </div>

@@ -1,7 +1,7 @@
 <script>
 	import Header from '$lib/components/home/header.svelte';
-	import Hero from '@/components/home/hero.svelte';
-	import ThemePresetSelector from '@/components/home/theme-preset-selector.svelte';
+	import Hero from '$lib/components/home/hero.svelte';
+	import ThemePresetSelector from '$lib/components/home/theme-preset-selector.svelte';
 
 	let isScrolled = $state(false);
 	let mobileMenuOpen = $state(false);

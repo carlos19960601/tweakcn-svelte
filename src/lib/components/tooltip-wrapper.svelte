@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { cn } from '@/utils';
+	import { cn } from '$lib/utils';
 	import type { ComponentProps } from 'svelte';
 	import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 

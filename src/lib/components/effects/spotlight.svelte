@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { cn } from '@/utils';
+	import { cn } from '$lib/utils';
 
 	const { class: className, fill } = $props();
 </script>

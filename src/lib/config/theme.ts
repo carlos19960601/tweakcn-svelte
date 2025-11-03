@@ -1,5 +1,5 @@
-import type { ThemeEditorState } from "@/types/editor";
-import type { ThemeStyleProps } from "@/types/theme";
+import type { ThemeEditorState } from "$lib/types/editor";
+import type { ThemeStyleProps } from "$lib/types/theme";
 
 // Default light theme styles
 export const defaultLightThemeStyles: ThemeStyleProps = {
