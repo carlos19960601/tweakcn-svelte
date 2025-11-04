@@ -1,23 +1,24 @@
 <script lang="ts">
+	import Marquee from '$lib/components/marquee.svelte';
 	import { useIntersectionObserver } from '$lib/hooks/use-intersection-observer.svelte';
 	import { cn, colorFormatter } from '$lib/utils';
 	import { getPresetThemeStyle } from '$lib/utils/theme-preset.svelte';
-	import AnimatedRow from './animated-row.svelte';
 	import PresetButton from './preset-button.svelte';
 
-	let { presetNames, mode }: { presetNames: string[]; mode: 'light' | 'dark' } = $props();
+	let {
+		presetNames,
+		mode,
+		numRows = 3,
+		rowGapPx = 16
+	}: {
+		presetNames: string[];
+		mode: 'light' | 'dark';
+		numRows: number;
+		rowGapPx: number;
+	} = $props();
 
 	// 使用 Intersection Observer，阈值 0.2 表示 20% 可见时触发
 	const observer = useIntersectionObserver({ threshold: 0.1 });
-
-	// --- Configuration ---
-	const numRows = 3;
-	const buttonWidthPx = 160; // Keep consistent with previous style
-	const gapPx = 16; // space-x-4 -> 1rem = 16px
-	const rowGapPx = 16; // gap-y-4 -> 1rem = 16px
-	const duplicationFactor = 4; // Duplicate multiple times for wider screens
-	const baseDurationPerItem = 5; // Seconds per item for animation speed
-	// ---------------------
 
 	// Use the intended slice of presets
 	const presetsToShow = presetNames || [];
@@ -34,13 +35,7 @@
 		const numPresetsInRow = rowPresets.length;
 		if (numPresetsInRow === 0) return null;
 
-		const duplicatedRowPresets = Array(duplicationFactor).fill(rowPresets).flat();
-		const totalWidth = numPresetsInRow * (buttonWidthPx + gapPx);
-		const duration = numPresetsInRow * baseDurationPerItem;
-
-		const initialOffset = 0;
-
-		const presets = duplicatedRowPresets.map((presetName, index) => {
+		const presets = rowPresets.map((presetName, index) => {
 			const themeStyle = getPresetThemeStyle(presetName)[mode];
 			return {
 				name: presetName,
@@ -51,16 +46,7 @@
 
 		return {
 			key: `row-${rowIndex}`,
-			presets: presets,
-			numOriginalPresets: numPresetsInRow,
-			transition: {
-				duration,
-				ease: 'liear' as const,
-				repeat: Infinity
-			},
-			style: {
-				x: initialOffset
-			}
+			presets: presets
 		};
 	};
 
@@ -70,18 +56,17 @@
 <div
 	use:observer.ref
 	class={cn(
-		'flex flex-col py-2 transition-transform duration-500 ease-out',
+		'w-full overflow-hidden flex flex-col py-2 transition-transform duration-500 ease-out',
 		observer.hasIntersected ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
 	)}
 	style="gap: {rowGapPx}px;"
 >
 	{#each rowsData as rowData (rowData?.key)}
-		<AnimatedRow>
-			<div class="flex" style="gap: {gapPx}px;">
-				{#each rowData!.presets as preset, index}
-					<PresetButton {preset} />
-				{/each}
-			</div>
-		</AnimatedRow>
+		<Marquee pauseOnHover>
+			{#each rowData!.presets as preset, index}
+				<PresetButton {preset} />
+			{/each}
+		</Marquee>
 	{/each}
 </div>
+-

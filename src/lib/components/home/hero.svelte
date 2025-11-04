@@ -22,13 +22,13 @@
 	});
 </script>
 
-<section class="relative py-20 md:py-32 lg:py-40">
+<section class="container mx-auto w-full relative py-20 md:py-32 lg:py-40">
 	{#if mounted}
 		<div transition:fade={{ duration: 500, delay: 300 }}>
-			<Spotlight class="top-0 left-0" fill="white" />
+			<Spotlight class="top-0 left-0 opacity-50" fill="white" />
 		</div>
 	{/if}
-	<div class="px-4 md:mx-6">
+	<div class="px-4 md:px-6">
 		<div class="grid lg:grid-cols-2 items-center gap-12">
 			<!-- Left Column - Text Content -->
 			<div class="max-w-2xl mx-auto">
@@ -77,16 +77,14 @@
 
 			<!-- Right Column - Preview Card -->
 			<div class="hidden lg:block">
-				<Card class="shadow-xl ">
+				<Card class="shadow-xl py-0">
 					<CardContent class="p-0">
 						<!-- Header -->
 						<div class="p-4 border-b flex items-center">
-							<div>
-								<div class="flex gap-2">
-									<div class="size-3 rounded-full bg-red-500"></div>
-									<div class="size-3 rounded-full bg-yellow-500"></div>
-									<div class="size-3 rounded-full bg-green-500"></div>
-								</div>
+							<div class="flex gap-2">
+								<div class="size-3 rounded-full bg-red-500"></div>
+								<div class="size-3 rounded-full bg-yellow-500"></div>
+								<div class="size-3 rounded-full bg-green-500"></div>
 							</div>
 						</div>
 

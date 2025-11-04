@@ -46,7 +46,7 @@
 </script>
 
 <header>
-	<div class="container mx-auto h-16 flex justify-between items-center px-4">
+	<div class="container mx-auto h-16 flex justify-between items-center px-4 md:px-6">
 		<a href="/">
 			<div class="flex items-center gap-2 font-bold">
 				<img src={logo} class="size-6" alt="Logo" />

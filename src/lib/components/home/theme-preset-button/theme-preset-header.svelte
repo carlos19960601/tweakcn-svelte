@@ -7,8 +7,6 @@
 	const observer = useIntersectionObserver({ threshold: 0.2 });
 </script>
 
-<!-- transition:fly={{ y: 20, duration: 500, easing: cubicOut }} -->
-
 <div use:observer.ref>
 	<div
 		class={cn(
