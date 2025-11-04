@@ -13,8 +13,8 @@
 	}: {
 		presetNames: string[];
 		mode: 'light' | 'dark';
-		numRows: number;
-		rowGapPx: number;
+		numRows?: number;
+		rowGapPx?: number;
 	} = $props();
 
 	// 使用 Intersection Observer，阈值 0.2 表示 20% 可见时触发
@@ -56,7 +56,7 @@
 <div
 	use:observer.ref
 	class={cn(
-		'w-full overflow-hidden flex flex-col py-2 transition-transform duration-500 ease-out',
+		'w-full overflow-hidden mb-8 flex flex-col py-2 transition-transform duration-500 ease-out',
 		observer.hasIntersected ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
 	)}
 	style="gap: {rowGapPx}px;mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)"
@@ -69,4 +69,3 @@
 		</Marquee>
 	{/each}
 </div>
--
