@@ -15,14 +15,26 @@
 	let { links = [] }: NavProps = $props();
 </script>
 
-<div>
+<div class="group flex flex-col gap-4 py-2">
 	<nav class="grid gap-1 px-2">
 		{#each links as link}
-			<button class={cn(buttonVariants({ variant: link.variant, size: 'sm' }))}>
-				<link.icon />
+			<button
+				class={cn(
+					buttonVariants({ variant: link.variant, size: 'sm' }),
+					link.variant === 'default' &&
+						'group dark:bg-muted dark:text-foreground dark:hover:bg-muted dark:hover:text-foreground',
+					'justify-start'
+				)}
+			>
+				<link.icon class="mr-2 size-4" />
 				{link.title}
 				{#if link.label}
-					<span>{link.label}</span>
+					<span
+						class={cn(
+							'ml-auto',
+							link.variant === 'default' && 'text-background dark:text-muted-foreground'
+						)}>{link.label}</span
+					>
 				{/if}
 			</button>
 		{/each}
