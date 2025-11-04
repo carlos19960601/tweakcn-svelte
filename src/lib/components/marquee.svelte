@@ -34,15 +34,17 @@
 		pauseOnHover = false,
 		vertical = false,
 		repeat = 4,
+		style,
 		children,
 		...props
 	}: MarqueeProps = $props();
 </script>
 
+<!-- style 这里是为了让使用方指定duration，可以有更好的方式吗？ -->
 <div
 	{...props}
 	class={cn(className, 'flex group gap-(--gap)', { 'flex-row': !vertical, 'flex-col': vertical })}
-	style="--gap: 1rem;--duration: 40s;"
+	style="--gap:1rem; --duration:20s; {style}"
 >
 	{#each { length: repeat } as _}
 		<div
