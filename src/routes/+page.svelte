@@ -1,6 +1,7 @@
 <script>
 	import Header from '$lib/components/home/header.svelte';
 	import Hero from '$lib/components/home/hero.svelte';
+	import Testimonials from '$lib/components/home/testimonials.svelte';
 	import ThemePresetSelector from '$lib/components/home/theme-preset-selector.svelte';
 
 	let isScrolled = $state(false);
@@ -12,5 +13,6 @@
 	<main>
 		<Hero />
 		<ThemePresetSelector />
+		<Testimonials />
 	</main>
 </div>

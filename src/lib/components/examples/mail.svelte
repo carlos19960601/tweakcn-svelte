@@ -46,8 +46,8 @@
 	)}
 >
 	<TooltipProvider delayDuration={0}>
-		<ResizablePaneGroup direction="horizontal" class="min-h-[800px] h-full">
-			<ResizablePane minSize={15} maxSize={20} defaultSize={defaultLayout[0]}>
+		<ResizablePaneGroup direction="horizontal" class="max-h-[800px] h-full items-stretch">
+			<ResizablePane collapsible minSize={15} maxSize={20} defaultSize={defaultLayout[0]}>
 				<div class="flex h-[52px] items-center justify-center px-2">
 					<AccountSwitcher {accounts} />
 				</div>
@@ -129,7 +129,7 @@
 				/>
 			</ResizablePane>
 			<ResizableHandle withHandle />
-			<ResizablePane defaultSize={defaultLayout[1]}>
+			<ResizablePane defaultSize={defaultLayout[1]} minSize={30}>
 				<Tabs bind:value={tabValue}>
 					<div class="flex items-center px-4 py-1.5">
 						<h1 class="text-foreground text-xl font-bold">Inbox</h1>
@@ -147,16 +147,16 @@
 							</div>
 						</form>
 					</div>
-					<TabsContent value="all">
+					<TabsContent value="all" class="m-0 h-screen">
 						<MailList items={mails} />
 					</TabsContent>
-					<TabsContent value="unread">
+					<TabsContent value="unread" class="m-0 h-screen">
 						<MailList items={mails.filter((mail) => !mail.read)} />
 					</TabsContent>
 				</Tabs>
 			</ResizablePane>
 			<ResizableHandle withHandle />
-			<ResizablePane defaultSize={defaultLayout[2]}>
+			<ResizablePane defaultSize={defaultLayout[2]} minSize={30}>
 				<MailDisplay mail={mails[0]} />
 			</ResizablePane>
 		</ResizablePaneGroup>
