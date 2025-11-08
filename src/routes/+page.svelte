@@ -1,4 +1,5 @@
 <script>
+	import Features from '$lib/components/home/features.svelte';
 	import Header from '$lib/components/home/header.svelte';
 	import Hero from '$lib/components/home/hero.svelte';
 	import Testimonials from '$lib/components/home/testimonials.svelte';
@@ -14,5 +15,6 @@
 		<Hero />
 		<ThemePresetSelector />
 		<Testimonials />
+		<Features />
 	</main>
 </div>

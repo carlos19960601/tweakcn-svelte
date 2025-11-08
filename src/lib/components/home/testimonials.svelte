@@ -27,7 +27,7 @@
 			>
 				Loved by developers worldwide
 			</h2>
-			<p class="text-muted-foreground max-w-[500px] md:text-lg">
+			<p class="text-muted-foreground font-bold max-w-[500px] md:text-lg">
 				See what the community is saying about tweakcn
 			</p>
 		</div>
