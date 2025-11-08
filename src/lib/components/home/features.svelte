@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { useIntersectionObserver } from '$lib/hooks/use-intersection-observer.svelte';
 	import { cn } from '$lib/utils';
 	import { Badge } from '../ui/badge';
@@ -6,8 +6,7 @@
 	import FeatureCard from './features/feature-card.svelte';
 
 	const observer = useIntersectionObserver({ threshold: 0.2 });
-
-	const featuresObserver = useIntersectionObserver({ threshold: 0.2 });
+	const featuresObserver = useIntersectionObserver({ threshold: 0.1 });
 </script>
 
 <section class="w-full py-20 md:py-32">
@@ -29,9 +28,19 @@
 			</p>
 		</div>
 
-		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+		<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" use:featuresObserver.ref>
 			{#each features as feature, index}
-				<FeatureCard {feature} {index} />
+				<div
+					class={cn(
+						'h-full transition-all duration-700 ease-out',
+						featuresObserver.hasIntersected
+							? 'opacity-100 translate-y-0'
+							: 'opacity-0 translate-y-8'
+					)}
+					style="transition-delay: {index * 100}ms;"
+				>
+					<FeatureCard {feature} />
+				</div>
 			{/each}
 		</div>
 	</div>

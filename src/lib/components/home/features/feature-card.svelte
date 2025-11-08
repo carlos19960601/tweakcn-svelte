@@ -1,22 +1,13 @@
 <script lang="ts">
 	import { Card, CardContent } from '$lib/components/ui/card';
-	import { useIntersectionObserver } from '$lib/hooks/use-intersection-observer.svelte';
 	import { cn } from '$lib/utils';
 	import { GemIcon } from '@lucide/svelte';
 	import type { Feature } from './data';
 
-	let { feature, index }: { feature: Feature; index: number } = $props();
-	let observer = useIntersectionObserver({ threshold: 0.1 });
+	let { feature }: { feature: Feature } = $props();
 </script>
 
-<div
-	use:observer.ref
-	class={cn(
-		'duration-1000 transition-all translate-y-0 hover:-translate-y-1.5 ease-out',
-		observer.hasIntersected ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-	)}
-	style="transition-delay: {100 + index * 100}ms;"
->
+<div class={cn('h-full duration-200 transition-all translate-y-0 hover:-translate-y-1.5 ease-out')}>
 	<Card class="h-full group">
 		<CardContent class="flex flex-col p-6">
 			<div
