@@ -1,14 +1,13 @@
 <script lang="ts">
 	import { Card, CardContent } from '$lib/components/ui/card';
-	import { cn } from '$lib/utils';
 	import { GemIcon } from '@lucide/svelte';
 	import type { Feature } from './data';
 
 	let { feature }: { feature: Feature } = $props();
 </script>
 
-<div class={cn('h-full duration-200 transition-all translate-y-0 hover:-translate-y-1.5 ease-out')}>
-	<Card class="h-full group">
+<div class="h-full duration-200 transition-all translate-y-0 hover:-translate-y-1.5 ease-out">
+	<Card class="h-full group p-0 rounded-3xl">
 		<CardContent class="flex flex-col p-6">
 			<div
 				class="bg-primary/10 group-hover:bg-primary/20 text-primary mb-4 size-12 flex items-center justify-center rounded-full transition-colors duration-300"
