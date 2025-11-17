@@ -8,7 +8,7 @@ export interface BaseEditorState {
 
 export interface ThemeEditorState extends BaseEditorState {
   preset?: string;
-  currentMode: "light" | "dark",
+  currentMode: 'light' | 'dark',
   hslAdjustments?: {
     hueShift: number,
     saturationScale: number;

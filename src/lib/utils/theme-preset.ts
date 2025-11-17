@@ -1,5 +1,5 @@
 import { defaultThemeState } from "$lib/config/theme";
-import { themePresetStore } from "$lib/stores/theme-preset-store.svelte";
+import { themePresetStore } from "$lib/stores/theme-preset.svelte";
 import type { ThemeStyles } from "$lib/types/theme";
 import { get } from "svelte/store";
 

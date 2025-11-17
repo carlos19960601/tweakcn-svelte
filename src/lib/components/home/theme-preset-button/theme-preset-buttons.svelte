@@ -2,19 +2,21 @@
 	import Marquee from '$lib/components/marquee.svelte';
 	import { useIntersectionObserver } from '$lib/hooks/use-intersection-observer.svelte';
 	import { cn, colorFormatter } from '$lib/utils';
-	import { getPresetThemeStyle } from '$lib/utils/theme-preset.svelte';
+	import { getPresetThemeStyle } from '$lib/utils/theme-preset';
 	import PresetButton from './preset-button.svelte';
 
 	let {
 		presetNames,
 		mode,
 		numRows = 3,
-		rowGapPx = 16
+		rowGapPx = 16,
+		applyThemePreset
 	}: {
 		presetNames: string[];
 		mode: 'light' | 'dark';
 		numRows?: number;
 		rowGapPx?: number;
+		applyThemePreset: (presetName: string) => void;
 	} = $props();
 
 	// 使用 Intersection Observer，阈值 0.2 表示 20% 可见时触发
@@ -64,7 +66,7 @@
 	{#each rowsData as rowData (rowData?.key)}
 		<Marquee pauseOnHover style="--duration: 20s">
 			{#each rowData!.presets as preset, index}
-				<PresetButton {preset} />
+				<PresetButton {preset} {applyThemePreset} />
 			{/each}
 		</Marquee>
 	{/each}

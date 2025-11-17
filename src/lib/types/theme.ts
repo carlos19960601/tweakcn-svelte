@@ -1,4 +1,5 @@
 import { z } from 'zod';
+export type Theme = "light" | "dark"
 
 export const themeStylePropsSchema = z.object({
 	background: z.string().describe('The default background color, paired with `foreground`.'),

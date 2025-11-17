@@ -3,7 +3,7 @@
 	import { cn } from '$lib/utils';
 	import ColorBox from './color-box.svelte';
 
-	let { preset } = $props();
+	let { preset, applyThemePreset } = $props();
 </script>
 
 <div
@@ -20,6 +20,7 @@
 			.replace('hsl', 'hsla')
 			.replace(/\s+/g, ', ')
 			.replace(')', ', 0.10)')}; color: {preset.themeStyle.foreground}"
+		onclick={() => applyThemePreset(preset.name)}
 	>
 		<div class="flex items-center gap-2.5">
 			<div class="flex gap-1">

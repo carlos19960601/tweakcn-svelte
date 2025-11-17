@@ -11,8 +11,7 @@ const initialState: ThemePresetStore = {
 };
 
 function createThemePresetStore() {
-  const { subscribe, set, update } = writable<ThemePresetStore>(initialState);
-
+  const { subscribe } = writable<ThemePresetStore>(initialState);
 
   return {
     subscribe,
