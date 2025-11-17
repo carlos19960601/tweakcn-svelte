@@ -1,5 +1,5 @@
 <script>
-	import { inViewFly } from '$lib/attachments/inview-fly.svelte';
+	import { inViewFly } from '$lib/attachments/in-view-fly.svelte';
 	import { ArrowRightIcon } from '@lucide/svelte';
 	import { Button } from '../ui/button';
 </script>

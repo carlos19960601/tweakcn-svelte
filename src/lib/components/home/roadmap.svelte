@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { inViewFly } from '$lib/attachments/inview-fly.svelte';
+	import { inViewFly } from '$lib/attachments/in-view-fly.svelte';
 	import { useIntersectionObserver } from '$lib/hooks/use-intersection-observer.svelte';
 	import { cn } from '$lib/utils';
 	import { Badge } from '../ui/badge';
@@ -34,8 +34,7 @@
 					{@attach inViewFly({
 						threshold: 0.1,
 						duration: 500,
-						delay: index * 100,
-						name: roadmap.title
+						delay: index * 100
 					})}
 				>
 					<RoadmapCard {roadmap} />

@@ -98,7 +98,7 @@
 								</div>
 								<div class="space-y-2 text-center">
 									<div
-										class="from-primary via-secondary via-accent via-muted to-background h-24 max-w-full rounded-xl bg-linear-to-r"
+										class="from-primary via-secondary to-background h-24 max-w-full rounded-xl bg-linear-to-r"
 									></div>
 									<div class="text-muted-foreground grid grid-cols-5 gap-2 text-xs">
 										<div>Primary</div>

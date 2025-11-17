@@ -62,7 +62,7 @@
 	style="gap: {rowGapPx}px;mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)"
 >
 	{#each rowsData as rowData (rowData?.key)}
-		<Marquee pauseOnHover style="--duration: 10s">
+		<Marquee pauseOnHover style="--duration: 20s">
 			{#each rowData!.presets as preset, index}
 				<PresetButton {preset} />
 			{/each}

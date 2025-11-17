@@ -1,13 +1,16 @@
 <script>
-	import { inViewFly } from '$lib/attachments/inview-fly.svelte';
+	import { inViewFly } from '$lib/attachments/in-view-fly.svelte';
 	import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../ui/accordion';
 	import { Badge } from '../ui/badge';
 	import { faqs } from './faq/data';
 </script>
 
-<section>
+<section class="py-20 md:py-32">
 	<div class="container mx-auto px-4 md:px-6">
-		<div class="mb-12 flex flex-col items-center justify-center space-y-4 text-center">
+		<div
+			{@attach inViewFly()}
+			class="mb-12 flex flex-col items-center justify-center space-y-4 text-center"
+		>
 			<Badge variant="secondary" class="rounded-full px-4 py-1.5 text-sm font-medium shadow-sm">
 				<span class="text-primary mr-1">✦</span> FAQ
 			</Badge>
