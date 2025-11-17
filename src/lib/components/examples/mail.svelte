@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { useIntersectionObserver } from '$lib/hooks/use-intersection-observer.svelte';
-	import { cn } from '$lib/utils';
+	import { inViewFly } from '$lib/attachments/in-view-fly.svelte';
 	import {
 		AlertCircleIcon,
 		ArchiveIcon,
@@ -32,18 +31,12 @@
 
 	let { defaultLayout = [20, 32, 48] }: MailProps = $props();
 
-	const observer = useIntersectionObserver({ threshold: 0.1 });
-
 	let tabValue = $state('all');
 </script>
 
 <div
-	use:observer.ref
-	class={cn(
-		'container mx-auto overflow-hidden border shadow-lg rounded-lg max-h-[60vh] md:max-h-[70vh]',
-		'transition-all duration-500 delay-200',
-		observer.hasIntersected ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-	)}
+	{@attach inViewFly()}
+	class="container mx-auto overflow-hidden border shadow-lg rounded-lg max-h-[60vh] md:max-h-[70vh]"
 >
 	<TooltipProvider delayDuration={0}>
 		<ResizablePaneGroup direction="horizontal" class="max-h-[800px] h-full items-stretch">

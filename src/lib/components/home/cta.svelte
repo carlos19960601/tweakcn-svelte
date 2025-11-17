@@ -16,29 +16,38 @@
 			{@attach inViewFly({ threshold: 0.1 })}
 			class="flex flex-col items-center justify-center space-y-6 text-center"
 		>
-			<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+			<h2
+				{@attach inViewFly({ threshold: 0.1 })}
+				class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight"
+			>
 				Ready to Make Your Components Stand Out?
 			</h2>
-			<p>
+			<p
+				{@attach inViewFly({ threshold: 0.1, delay: 100 })}
+				class="mx-auto max-w-[700px] text-primary-foreground/80 md:text-xl"
+			>
 				Start customizing your shadcn/ui components today and create a unique look for your
 				application.
 			</p>
-			<div class="flex flex-col sm:flex-row gap-4 mt-4">
+			<div
+				{@attach inViewFly({ threshold: 0.1, delay: 200 })}
+				class="flex flex-col sm:flex-row gap-4 mt-4"
+			>
 				<a href="/editor/home">
 					<Button
 						variant="secondary"
 						size="lg"
-						class="rounded-full h-12 px-8 cursor-pointer shadow-md hover:shadow-lg"
+						class="rounded-full h-12  px-8 cursor-pointer shadow-md hover:shadow-lg duration-300 hover:-translate-y-0.5"
 					>
 						Try It Now
 						<ArrowRightIcon class="ml-2 size-4" />
 					</Button>
 				</a>
-				<a href="/editor/home">
+				<a href="https://github.com/jnsahaj/tweakcn">
 					<Button
 						variant="outline"
 						size="lg"
-						class="rounded-full bg-transparent h-12 px-8 cursor-pointer shadow-md hover:shadow-lg"
+						class="rounded-full bg-transparent h-12 px-8 cursor-pointer shadow-md hover:shadow-lg duration-300 hover:-translate-y-0.5"
 					>
 						View on GitHub
 					</Button>

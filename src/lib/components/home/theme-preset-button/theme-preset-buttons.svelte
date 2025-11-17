@@ -1,7 +1,7 @@
 <script lang="ts">
+	import { inViewFly } from '$lib/attachments/in-view-fly.svelte';
 	import Marquee from '$lib/components/marquee.svelte';
-	import { useIntersectionObserver } from '$lib/hooks/use-intersection-observer.svelte';
-	import { cn, colorFormatter } from '$lib/utils';
+	import { colorFormatter } from '$lib/utils';
 	import { getPresetThemeStyle } from '$lib/utils/theme-preset';
 	import PresetButton from './preset-button.svelte';
 
@@ -18,9 +18,6 @@
 		rowGapPx?: number;
 		applyThemePreset: (presetName: string) => void;
 	} = $props();
-
-	// 使用 Intersection Observer，阈值 0.2 表示 20% 可见时触发
-	const observer = useIntersectionObserver({ threshold: 0.1 });
 
 	// Use the intended slice of presets
 	const presetsToShow = presetNames || [];
@@ -56,11 +53,8 @@
 </script>
 
 <div
-	use:observer.ref
-	class={cn(
-		'w-full overflow-hidden mb-8 flex flex-col py-2 transition-transform duration-500 ease-out',
-		observer.hasIntersected ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-	)}
+	{@attach inViewFly({ y: 40 })}
+	class="w-full overflow-hidden mb-8 flex flex-col py-2"
 	style="gap: {rowGapPx}px;mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)"
 >
 	{#each rowsData as rowData (rowData?.key)}

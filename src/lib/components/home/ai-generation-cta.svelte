@@ -1,14 +1,11 @@
 <script>
-	import { useIntersectionObserver } from '$lib/hooks/use-intersection-observer.svelte';
-	import { cn } from '$lib/utils';
+	import { inViewFly } from '$lib/attachments/in-view-fly.svelte';
 	import { ArrowRightIcon, CheckIcon } from '@lucide/svelte';
 	import FrameHighlight from '../effects/frame-highlight.svelte';
 	import NoiseEffect from '../effects/noise-effect.svelte';
 	import AiChatDemo from '../examples/ai-chat-demo.svelte';
 	import { Badge } from '../ui/badge';
 	import { Button } from '../ui/button';
-
-	const observer = useIntersectionObserver({ threshold: 0.2 });
 </script>
 
 <section class="bg-muted/25 w-full py-20 md:py-32 lg:py-42">
@@ -17,13 +14,7 @@
 			<div class="grid items-center gap-12 lg:grid-cols-2">
 				<!-- Left Column - Text Content  -->
 				<div class="mx-auto max-w-2xl lg:mx-0">
-					<div
-						use:observer.ref
-						class={cn(
-							'duration-500 space-y-8',
-							observer.hasIntersected ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-						)}
-					>
+					<div {@attach inViewFly()} class="duration-500 space-y-8">
 						<div class="flex flex-col gap-4 items-center">
 							<Badge
 								variant="secondary"

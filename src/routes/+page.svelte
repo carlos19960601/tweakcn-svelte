@@ -1,4 +1,5 @@
 <script>
+	import Footer from '$lib/components/footer.svelte';
 	import AiGenerationCta from '$lib/components/home/ai-generation-cta.svelte';
 	import Cta from '$lib/components/home/cta.svelte';
 	import Faq from '$lib/components/home/faq.svelte';
@@ -27,4 +28,5 @@
 		<Faq />
 		<Cta />
 	</main>
+	<Footer />
 </div>

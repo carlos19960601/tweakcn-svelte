@@ -1,24 +1,15 @@
 <script lang="ts">
 	import { inViewFly } from '$lib/attachments/in-view-fly.svelte';
-	import { useIntersectionObserver } from '$lib/hooks/use-intersection-observer.svelte';
 	import { cn } from '$lib/utils';
 	import { Badge } from '../ui/badge';
 	import { roadmapItems } from './roadmap/data';
 	import RoadmapCard from './roadmap/roadmap-card.svelte';
-
-	const observer = useIntersectionObserver({ threshold: 0.1 });
 </script>
 
 <section class="py-20 md:py-32">
 	<div></div>
-	<div use:observer.ref class={cn('container mx-auto px-4 md:px-6')}>
-		<div
-			class={cn(
-				'flex flex-col items-center justify-center space-y-4 text-center mb-16',
-				'duration-500 transition-all',
-				observer.hasIntersected ? 'opacity-100 translate-y-0 ' : 'translate-y-20 opacity-0'
-			)}
-		>
+	<div {@attach inViewFly()} class={cn('container mx-auto px-4 md:px-6')}>
+		<div class="flex flex-col items-center justify-center space-y-4 text-center mb-16">
 			<Badge class="rounded-full px-4 py-1.5 text-sm font-medium shadow-sm" variant="secondary">
 				<span class="text-primary mr-1">✦</span> Roadmap
 			</Badge>

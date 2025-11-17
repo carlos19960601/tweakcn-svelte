@@ -1,23 +1,17 @@
 <script>
-	import { useIntersectionObserver } from '$lib/hooks/use-intersection-observer.svelte';
-	import { cn } from '$lib/utils';
+	import { inViewFly } from '$lib/attachments/in-view-fly.svelte';
 	import Marquee from '../marquee.svelte';
 	import { Badge } from '../ui/badge';
 	import { testimonials } from './testimonials/data';
 	import TestimonialCard from './testimonials/testimonial-card.svelte';
-
-	const observer = useIntersectionObserver({ threshold: 0.2 });
 </script>
 
 <section id="testimonials" class="w-full py-20 md:py-32">
 	<div></div>
 	<div class="container mx-auto px-4 md:px-6">
 		<div
-			use:observer.ref
-			class={cn(
-				'mb-12 flex flex-col items-center justify-center space-y-4 text-center duration-500 transition-transform',
-				observer.hasIntersected ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-			)}
+			{@attach inViewFly({ threshold: 0.1 })}
+			class="mb-12 flex flex-col items-center justify-center space-y-4 text-center"
 		>
 			<Badge variant="secondary" class="rounded-full px-4 py-1.5 text-sm font-medium shadow-sm">
 				<span>✦</span> Testimonials
