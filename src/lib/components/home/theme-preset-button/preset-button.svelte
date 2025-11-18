@@ -1,9 +1,11 @@
 <script lang="ts">
 	import Button from '$lib/components/ui/button/button.svelte';
+	import { applyThemePreset, themeState } from '$lib/stores/editor.rune.svelte';
 	import { cn } from '$lib/utils';
 	import ColorBox from './color-box.svelte';
 
-	let { preset, applyThemePreset } = $props();
+	let { preset } = $props();
+	const isSelected = preset.name === themeState.preset;
 </script>
 
 <div
@@ -14,7 +16,8 @@
 	<Button
 		variant="ghost"
 		class={cn(
-			'flex w-full h-full items-center justify-center px-4 py-3 scroll-py-3.5 hover:shadow-lg'
+			'flex w-full h-full items-center justify-center px-4 py-3 scroll-py-3.5 hover:shadow-lg',
+			isSelected ? 'ring-2 ring-primary/50 shadow-md' : ''
 		)}
 		style="background-color: {preset.bgColor
 			.replace('hsl', 'hsla')

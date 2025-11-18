@@ -3,20 +3,17 @@
 	import Marquee from '$lib/components/marquee.svelte';
 	import { colorFormatter } from '$lib/utils';
 	import { getPresetThemeStyle } from '$lib/utils/theme-preset';
+	import { mode } from 'mode-watcher';
 	import PresetButton from './preset-button.svelte';
 
 	let {
 		presetNames,
-		mode,
 		numRows = 3,
-		rowGapPx = 16,
-		applyThemePreset
+		rowGapPx = 16
 	}: {
 		presetNames: string[];
-		mode: 'light' | 'dark';
 		numRows?: number;
 		rowGapPx?: number;
-		applyThemePreset: (presetName: string) => void;
 	} = $props();
 
 	// Use the intended slice of presets
@@ -35,7 +32,7 @@
 		if (numPresetsInRow === 0) return null;
 
 		const presets = rowPresets.map((presetName, index) => {
-			const themeStyle = getPresetThemeStyle(presetName)[mode];
+			const themeStyle = getPresetThemeStyle(presetName)[mode.current ?? 'light'];
 			return {
 				name: presetName,
 				themeStyle: themeStyle,
@@ -59,8 +56,8 @@
 >
 	{#each rowsData as rowData (rowData?.key)}
 		<Marquee pauseOnHover style="--duration: 20s">
-			{#each rowData!.presets as preset, index}
-				<PresetButton {preset} {applyThemePreset} />
+			{#each rowData!.presets as preset}
+				<PresetButton {preset} />
 			{/each}
 		</Marquee>
 	{/each}

@@ -5,7 +5,7 @@
 	import FeatureCard from './features/feature-card.svelte';
 </script>
 
-<section class="w-full py-20 md:py-32">
+<section class="relative w-full py-20 md:py-32">
 	<div class="absolute inset-0"></div>
 	<div class="container mx-auto px-4 md:px-6">
 		<div

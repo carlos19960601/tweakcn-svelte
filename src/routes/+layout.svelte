@@ -1,5 +1,7 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/favicon.ico';
+	import { themeState } from '$lib/stores/editor.rune.svelte';
+	import { applyThemeToElement } from '$lib/utils/apply-theme';
 	import { QueryClient, QueryClientProvider } from '@tanstack/svelte-query';
 	import { ModeWatcher } from 'mode-watcher';
 	import '../app.css';
@@ -7,6 +9,12 @@
 	const queryClient = new QueryClient();
 
 	const { children } = $props();
+
+	$effect(() => {
+		const root = document.documentElement;
+		if (!root) return;
+		applyThemeToElement(themeState, root);
+	});
 </script>
 
 <svelte:head>

@@ -1,6 +1,5 @@
 import type { ThemeEditorState } from "$lib/types/editor";
 import type { ThemeStyleProps } from "$lib/types/theme";
-import { mode } from "mode-watcher";
 
 // these are common between light and dark modes
 // we can assume that light mode's value will be used for dark mode as well
@@ -53,6 +52,4 @@ export const defaultThemeState: ThemeEditorState = {
     light: defaultLightThemeStyles,
     dark: defaultDarkThemeStyles,
   },
-  // currentMode: typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light",
-  currentMode: mode.current,
 }

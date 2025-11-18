@@ -39,7 +39,7 @@
 					{item.text.substring(0, 300)}
 				</div>
 				{#if item.labels.length}
-					<div>
+					<div class="flex items-center gap-2">
 						{#each item.labels as label}
 							<Badge variant={getBadgeVariantFromLabel(label)}>{label}</Badge>
 						{/each}

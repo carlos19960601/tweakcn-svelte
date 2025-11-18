@@ -1,10 +1,9 @@
 <script lang="ts">
-	import github from '$lib/assets/github.svg';
 	import logo from '$lib/assets/logo.svg';
 	import { Button } from '$lib/components/ui/button';
 	import { useGithubStars } from '$lib/hooks/use-github-stars.svelte';
 	import { formatCompactNumber } from '$lib/utils';
-	import { ChevronRightIcon } from '@lucide/svelte';
+	import { ChevronRightIcon, GithubIcon } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 	import { fly, scale } from 'svelte/transition';
 	import ThemeToggle from '../theme-toggle.svelte';
@@ -72,7 +71,7 @@
 			{#if mounted}
 				<div transition:scale={{ start: 0.9, opacity: 0, duration: 300, delay: 450 }}>
 					<Button variant="ghost" class="cursor-pointer">
-						<img src={github} class="size-5" alt="Github" />
+						<GithubIcon />
 						{#if githubStars.data?.stargazers_count && githubStars.data.stargazers_count > 0}
 							{formatCompactNumber(githubStars.data.stargazers_count)}
 						{/if}

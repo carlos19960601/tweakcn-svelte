@@ -26,7 +26,7 @@
 			{#each steps as step, index}
 				<div
 					{@attach inViewFly({ delay: index * 200 })}
-					class="flex flex-col items-center text-center space-y-4"
+					class="relative flex flex-col items-center text-center space-y-4"
 				>
 					<StepCard {step} {index} />
 				</div>
