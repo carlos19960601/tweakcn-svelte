@@ -1,5 +1,5 @@
 <script lang="ts">
-	import logo from '$lib/assets/logo.svg';
+	import Logo from '$lib/icons/logo.svelte';
 	import { GithubIcon, TwitterIcon } from '@lucide/svelte';
 </script>
 
@@ -8,7 +8,7 @@
 		<div class="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
 			<div class="col-span-2 max-w-md space-y-4">
 				<a href="/" class="flex items-center gap-2 font-bold"
-					><img src={logo} class="size-6" alt="Logo" />
+					><Logo class="size-6" />
 					<span>tweakcn</span></a
 				>
 				<p class="text-muted-foreground text-sm">
