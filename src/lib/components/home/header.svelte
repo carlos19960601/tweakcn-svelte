@@ -1,9 +1,10 @@
 <script lang="ts">
-	import logo from '$lib/assets/logo.svg';
 	import { Button } from '$lib/components/ui/button';
 	import { useGithubStars } from '$lib/hooks/use-github-stars.svelte';
+	import Github from '$lib/icons/github.svelte';
+	import Logo from '$lib/icons/logo.svelte';
 	import { formatCompactNumber } from '$lib/utils';
-	import { ChevronRightIcon, GithubIcon } from '@lucide/svelte';
+	import { ChevronRightIcon } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 	import { fly, scale } from 'svelte/transition';
 	import ThemeToggle from '../theme-toggle.svelte';
@@ -48,7 +49,7 @@
 	<div class="container mx-auto h-16 flex justify-between items-center px-4 md:px-6">
 		<a href="/">
 			<div class="flex items-center gap-2 font-bold">
-				<img src={logo} class="size-6" alt="Logo" />
+				<Logo class="size-6" />
 				<span class="hidden lg:block">tweakcn</span>
 			</div>
 		</a>
@@ -71,7 +72,7 @@
 			{#if mounted}
 				<div transition:scale={{ start: 0.9, opacity: 0, duration: 300, delay: 450 }}>
 					<Button variant="ghost" class="cursor-pointer">
-						<GithubIcon />
+						<Github />
 						{#if githubStars.data?.stargazers_count && githubStars.data.stargazers_count > 0}
 							{formatCompactNumber(githubStars.data.stargazers_count)}
 						{/if}

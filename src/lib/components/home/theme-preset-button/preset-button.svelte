@@ -5,7 +5,7 @@
 	import ColorBox from './color-box.svelte';
 
 	let { preset } = $props();
-	const isSelected = preset.name === themeState.preset;
+	const isSelected = $derived(preset.name === themeState.preset);
 </script>
 
 <div

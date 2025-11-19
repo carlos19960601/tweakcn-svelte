@@ -6,4 +6,5 @@ export const themeState = $state(defaultThemeState)
 export function applyThemePreset(preset: string) {
   const newStyles = getPresetThemeStyles(preset);
   themeState.styles = newStyles
+  themeState.preset = preset
 }
