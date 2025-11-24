@@ -50,6 +50,7 @@
 		"culori": "^4.0.2",
 		"date-fns": "^4.1.0",
 		"mode-watcher": "^1.1.0",
+		"svelte-streamdown": "^2.6.1",
 		"zod": "^4.1.12"
 	}
 }

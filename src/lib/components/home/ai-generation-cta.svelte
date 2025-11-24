@@ -23,7 +23,7 @@
 								<span class="text-primary mr-1">✦</span> Pro Features
 							</Badge>
 							<h2 class="text-3xl md:4xl lg:text-5xl font-bold tracking-tight">
-								Generate Themes With <FrameHighlight>AI</FrameHighlight> in Seconds
+								Generate Themes With <FrameHighlight class="text-primary">AI</FrameHighlight> in Seconds
 							</h2>
 							<p class="text-muted-foreground text-base md:text-lg leading-relaxed">
 								Create stunning ready-to-use themes. Just provide an image or text prompt, and our
@@ -57,9 +57,9 @@
 					</div>
 				</div>
 				<!-- Right Column - Visual Preview -->
-				<div>
-					<div>
-						<div class="h-[500px]">
+				<div class="relative hidden lg:flex flex-col items-center justify-center space-y-4">
+					<div {@attach inViewFly()}>
+						<div class="relative h-[500px] border-border/50 border-2 rounded-lg">
 							<NoiseEffect />
 							<AiChatDemo class="pb-16" />
 						</div>
@@ -67,10 +67,12 @@
 				</div>
 			</div>
 		</div>
-		<!--  Background effects  -->
+		<!-- Background effects  -->
 
 		<!-- Top Right - Primary -->
 
 		<!-- Bottom Left - Muted -->
+
+		<!-- Background effects  -->
 	</div>
 </section>
